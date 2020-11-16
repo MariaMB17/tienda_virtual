@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /store-frontend
+  RewriteRule ^store-frontend/index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /store-frontend/index.html [L]
+</IfModule> 
