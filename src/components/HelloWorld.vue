@@ -1,151 +1,156 @@
 <template>
-  <v-container>
-    <v-row class="text-center">
-      <v-col cols="12">
-        <v-img
-          :src="require('../assets/logo.svg')"
-          class="my-3"
-          contain
-          height="200"
-        />
-      </v-col>
-
-      <v-col class="mb-4">
-        <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Vuetify
-        </h1>
-
-        <p class="subheading font-weight-regular">
-          For help and collaboration with other Vuetify developers,
-          <br>please join our online
-          <a
-            href="https://community.vuetifyjs.com"
-            target="_blank"
-          >Discord Community</a>
-        </p>
-      </v-col>
-
-      <v-col
-        class="mb-5"
-        cols="12"
-      >
-        <h2 class="headline font-weight-bold mb-3">
-          What's next?
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(next, i) in whatsNext"
+<v-layout style="height: 100%! important;">
+  <v-container style="min-width: 100%; height:100%!important">
+    <v-row class="fill-height">
+      <v-carousel class="full-height-carousel" 
+        cycle
+        :show-arrows="false">
+          <v-carousel-item 
+            v-for="(item,i) in items"
             :key="i"
-            :href="next.href"
-            class="subheading mx-3"
-            target="_blank"
+            :src="item.src"
           >
-            {{ next.text }}
-          </a>
+          </v-carousel-item>
+      </v-carousel>
+    </v-row>
+    <v-row class="fill-height">
+      <v-container fluid>
+        <v-toolbar dense dark color="teal" class="pa-0" data-aos="zoom-in">
+          <v-row>
+            <v-col cols="2"></v-col>
+            <v-col class="d-flex justify-space-around">
+              <v-toolbar-title class="white--text">Categorias</v-toolbar-title>
+            </v-col>
+            <v-col cols="2" class="d-flex justify-end"></v-col>
+          </v-row>
+        </v-toolbar>
+        <v-row dense>          
+          <v-col
+            v-for="card in cards" 
+            :key="card.title" 
+            :cols="card.flex"
+            :data-aos="card.data_aos">
+            <v-card>
+              <v-img 
+                :src="card.src"
+                class="white--text align-end"
+                gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                height="200px"
+              >
+                <v-card-title v-text="card.title"></v-card-title>
+              </v-img>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn icon>
+                  <v-icon>mdi-heart</v-icon>
+                </v-btn>
+                <v-btn icon>
+                  <v-icon>mdi-bookmark</v-icon>
+                </v-btn>
+                <v-btn icon>
+                  <v-icon>mdi-share-variant</v-icon>
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
         </v-row>
-      </v-col>
-
-      <v-col
-        class="mb-5"
-        cols="12"
-      >
-        <h2 class="headline font-weight-bold mb-3">
-          Important Links
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(link, i) in importantLinks"
-            :key="i"
-            :href="link.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ link.text }}
-          </a>
+      </v-container>
+    </v-row>
+    <v-row class="fill-height">
+      <v-container fluid>
+        <v-toolbar dense dark color="teal" class="pa-0" data-aos="zoom-in">
+          <v-row>
+            <v-col cols="2"></v-col>
+            <v-col class="d-flex justify-space-around">
+              <v-toolbar-title class="white--text">Productos</v-toolbar-title>
+            </v-col>
+            <v-col cols="2" class="d-flex justify-end"></v-col>
+          </v-row>
+        </v-toolbar>
+        <v-row dense>
+          <v-col
+            cols="12"
+            md="4"
+            lg="4"
+            xl="4"
+            v-for="prod in products" 
+            :key="prod.title"
+            :data-aos="prod.data_aos">
+            <v-card>
+              <v-img 
+                :src="prod.src"
+                class="white--text align-end"
+                gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                height="200px"
+              >
+                <v-card-title v-text="prod.title"></v-card-title>
+              </v-img>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn icon>
+                  <v-icon>mdi-heart</v-icon>
+                </v-btn>
+                <v-btn icon>
+                  <v-icon>mdi-bookmark</v-icon>
+                </v-btn>
+                <v-btn icon>
+                  <v-icon>mdi-share-variant</v-icon>
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
         </v-row>
-      </v-col>
-
-      <v-col
-        class="mb-5"
-        cols="12"
-      >
-        <h2 class="headline font-weight-bold mb-3">
-          Ecosystem
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(eco, i) in ecosystem"
-            :key="i"
-            :href="eco.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ eco.text }}
-          </a>
-        </v-row>
-      </v-col>
+      </v-container>
     </v-row>
   </v-container>
+</v-layout>  
 </template>
-
 <script>
   export default {
     name: 'HelloWorld',
-
-    data: () => ({
-      ecosystem: [
-        {
-          text: 'vuetify-loader',
-          href: 'https://github.com/vuetifyjs/vuetify-loader',
-        },
-        {
-          text: 'github',
-          href: 'https://github.com/vuetifyjs/vuetify',
-        },
-        {
-          text: 'awesome-vuetify',
-          href: 'https://github.com/vuetifyjs/awesome-vuetify',
-        },
-      ],
-      importantLinks: [
-        {
-          text: 'Documentation',
-          href: 'https://vuetifyjs.com',
-        },
-        {
-          text: 'Chat',
-          href: 'https://community.vuetifyjs.com',
-        },
-        {
-          text: 'Made with Vuetify',
-          href: 'https://madewithvuejs.com/vuetify',
-        },
-        {
-          text: 'Twitter',
-          href: 'https://twitter.com/vuetifyjs',
-        },
-        {
-          text: 'Articles',
-          href: 'https://medium.com/vuetify',
-        },
-      ],
-      whatsNext: [
-        {
-          text: 'Explore components',
-          href: 'https://vuetifyjs.com/components/api-explorer',
-        },
-        {
-          text: 'Select a layout',
-          href: 'https://vuetifyjs.com/getting-started/pre-made-layouts',
-        },
-        {
-          text: 'Frequently Asked Questions',
-          href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions',
-        },
-      ],
-    }),
+    data () {
+      return {
+        items: [
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+          },
+        ],
+      cards: [
+          { title: 'Belleza y cuidado personal', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 4, data_aos:'fade-up'},
+          { title: 'Electrodimesticos', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 4, data_aos:'zoom-in' },
+          { title: 'Damas', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 4, data_aos:'fade-up' },
+          { title: 'Caballeros', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 4, data_aos: 'fade-down' },
+          { title: 'Electrodimesticos', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 4, data_aos:'zoom-in-up'},
+          { title: 'Damas', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 4, data_aos:'fade-down' },
+        ],
+      products: [
+          { title: 'Belleza y cuidado personal', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 4, data_aos:'fade-up'},
+          { title: 'Electrodimesticos', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 4, data_aos:'zoom-in' },
+          { title: 'Damas', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 4, data_aos:'fade-up' },
+          { title: 'Caballeros', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 4, data_aos: 'fade-down' },
+          { title: 'Electrodimesticos', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 4, data_aos:'zoom-in-up'},
+          { title: 'Damas', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 4, data_aos:'fade-down' },
+        ],
+      
+      }
+    },
   }
 </script>
+<style scoped>
+  /*.full-height-carousel{
+    height: 100%! important;
+  }*/
+ /*::v-deep .v-image {
+    z-index: 0;
+    height: calc(100% - 2px)!important;
+  }*/
+  ::v-deep .layout {
+    min-height: 100%!important;
+}
+</style>

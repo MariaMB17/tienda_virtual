@@ -1,18 +1,16 @@
 <template>
   <v-app id="app">
-    <v-navigation-drawer app>
-    <!-- -->
-  </v-navigation-drawer>
+    <!-- <v-navigation-drawer app></v-navigation-drawer> -->
 
-  <v-app-bar app>
-    <!-- -->
+  <v-app-bar app >
+    <AppHeader class="app-bar"/>
   </v-app-bar>
 
   <!-- Sizes your content based upon application components -->
   <v-main>
 
     <!-- Provides the application the proper gutter -->
-    <v-container fluid>
+    <v-container class="container-full-height"  fluid>
 
       <!-- If using vue-router -->
       <router-view></router-view>
@@ -31,25 +29,21 @@
   </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+// @ is an alias to /src
+import AppHeader from '@/components/header/AppHeader.vue'
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+export default {
+  components: {
+    AppHeader,
   }
 }
+</script>
+
+<style scoped>
+ .container-full-height{
+   height: 100%!important;
+   background-image: url("./assets/fondo_pantalla.jpg");
+   background-size: cover;
+ }
 </style>

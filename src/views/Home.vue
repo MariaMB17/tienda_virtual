@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld/>
   </div>
 </template>
 
@@ -15,3 +15,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+  .home{
+    height: 100%! important;
+  }
+</style>
