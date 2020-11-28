@@ -89,7 +89,7 @@ export default {
     }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
     .toolbar-header{
         background: rgba(13, 119, 5, 0.705)!important;
     }
