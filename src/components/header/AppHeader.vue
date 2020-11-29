@@ -91,7 +91,7 @@ export default {
 </script>
 <style lang="scss" scoped>
     .toolbar-header{
-        background: rgba(13, 119, 5, 0.705)!important;
+        background: $fondo-header !important;
     }
     #toolbar-content-header,#toolbar-movil-header {
         height: 100%!important;
@@ -105,7 +105,7 @@ export default {
     } */
     .input-header {
       width:100%; 
-      height: 40px;
+      height: $height-header;
       background: rgb(212 191 152);
       border-radius: 10px; 
       margin: 0px 12px;

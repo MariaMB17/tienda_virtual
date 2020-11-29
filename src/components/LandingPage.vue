@@ -1,6 +1,6 @@
 <template>
-<v-layout style="height: 100%! important;">
-  <v-container style="min-width: 100%; height:100%!important">
+<v-layout class = "inicio-layout">
+  <v-container class="container-layout">
     <v-row class="fill-height">
       <v-carousel class="full-height-carousel" 
         cycle
@@ -107,7 +107,7 @@
 </template>
 <script>
   export default {
-    name: 'HelloWorld',
+    name: 'LandingPage',
     data () {
       return {
         items: [
@@ -142,15 +142,15 @@
     },
   }
 </script>
-<style scoped>
-  /*.full-height-carousel{
-    height: 100%! important;
-  }*/
- /*::v-deep .v-image {
-    z-index: 0;
-    height: calc(100% - 2px)!important;
-  }*/
-  ::v-deep .layout {
-    min-height: 100%!important;
-}
+<style lang="scss" scoped>
+  .inicio-layout{
+    height: 100% !important;
+    .container-layout {
+        min-width: 100% !important; 
+        height: 100% !important;
+    }
+    ::v-deep .layout {
+      min-height: 100%!important;
+    }
+}  
 </style>

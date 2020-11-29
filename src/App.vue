@@ -1,31 +1,20 @@
 <template>
   <v-app id="app">
     <!-- <v-navigation-drawer app></v-navigation-drawer> -->
-
-  <v-app-bar app >
-    <AppHeader class="app-bar"/>
-  </v-app-bar>
-
-  <!-- Sizes your content based upon application components -->
-  <v-main>
-
-    <!-- Provides the application the proper gutter -->
-    <v-container class="container-full-height"  fluid>
-
-      <!-- If using vue-router -->
-      <router-view></router-view>
-    </v-container>
-  </v-main>
-
-  <v-footer app>
-    <!-- -->
-  </v-footer>
-
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/> -->
+    <v-app-bar app >
+      <AppHeader class="app-bar"/>
+    </v-app-bar>
+    <!-- Sizes your content based upon application components -->
+    <v-main>
+      <!-- Provides the application the proper gutter -->
+      <v-container class="container-full-height"  fluid>
+        <!-- If using vue-router -->
+        <router-view></router-view>
+      </v-container>
+    </v-main>
+    <v-footer app>
+      <!-- -->
+    </v-footer>
   </v-app>
 </template>
 
@@ -42,8 +31,8 @@ export default {
 
 <style scoped>
  .container-full-height{
-   height: 100%!important;
+   /*height: 100%!important;
    background-image: url("./assets/fondo_pantalla.jpg");
-   background-size: cover;
+   background-size: cover;*/
  }
 </style>
